@@ -20,7 +20,7 @@ pip install wyoming sentence-stream numpy onnxruntime
 You must download the model files manually.
 
 1. Download the contents of the `assets` folder from the [Supertonic HuggingFace repository](https://huggingface.co/Supertone/supertonic/tree/main).
-2. Organize them in a directory (e.g., `supertonic-data`) exactly as shown below:
+2. Organize them in a directory (e.g., `/home/username/supertonic-data`) exactly as shown below:
 
 ```text
 supertonic-data/
@@ -42,7 +42,7 @@ supertonic-data/
 Run the server pointing to your model directory:
 
 ```bash
-python3 -m wyoming_supertonic --data-dir /path/to/supertonic-data --uri 'tcp://0.0.0.0:10209'
+python3 -m wyoming_supertonic --data-dir ~/supertonic-data --uri 'tcp://0.0.0.0:10209'
 ```
 
 ## Arguments
