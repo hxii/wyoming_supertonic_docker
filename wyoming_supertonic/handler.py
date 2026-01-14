@@ -55,7 +55,6 @@ class SupertonicEventHandler(AsyncEventHandler):
                 if self._is_streaming: return True
                 
                 syn = Synthesize.from_event(event)
-                # Надеемся, что библиотека сама смержила данные
                 voice_data = event.data.get("voice", {})
                 lang = voice_data.get("language")
 
@@ -160,7 +159,7 @@ class SupertonicEventHandler(AsyncEventHandler):
         elif self.engine.available_voices:
              voice_name = self.engine.available_voices[0]
 
-        _LOGGER.debug(f"Requesting synthesis for: '{text[:40]}...' [Lang: {self._current_language}]")
+        _LOGGER.debug(f"Requesting synthesis for: '{text[:40]}...'")
 
         loop = asyncio.get_running_loop()
         try:
