@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  wyoming-supertonic:
+    build: .
+    ports:
+      - "10209:10209"
+    environment:
+      - SUPERTONIC_SPEED=1.0
+      - SUPERTONIC_STEPS=5
+      - SUPERTONIC_THREADS=4
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "uv", "run", "curl", "-f", "http://localhost:10209/info"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
